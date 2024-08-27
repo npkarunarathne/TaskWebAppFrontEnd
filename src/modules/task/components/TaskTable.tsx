@@ -43,7 +43,7 @@ const rows = [
 
   React.useEffect(()=>{
     getTaskFilterData({...filters})
-  },[])
+  },[filters])
 
   React.useEffect(()=>{
     if(isSuccess){

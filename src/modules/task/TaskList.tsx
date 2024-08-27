@@ -11,6 +11,8 @@ import { useGetTaskFilterDataMutation } from '../../store/api/task/taskApiSlice'
 import { FilterProvider } from './context/FilterContext';
 import ToolBar from './components/ToolBar';
 import TaskTable from './components/TaskTable';
+import { TaskProvider } from './context/TaskContext';
+import TaskForm from './components/TaskForm';
 
 const  createData = (
   name: string,
@@ -58,12 +60,13 @@ const rows = [
 
   return (
     <Box p={5}>
-       <FilterProvider>
-        
-       <ToolBar />
-       <TaskTable/>
-       </FilterProvider>
-    
+      <TaskProvider>
+        <FilterProvider>
+          <ToolBar />
+          <TaskTable/>
+          <TaskForm/>
+        </FilterProvider>
+      </TaskProvider>
     </Box>
   );
 }

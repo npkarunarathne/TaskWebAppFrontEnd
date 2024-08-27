@@ -2,7 +2,8 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 
 interface Filters {
-    date: string | null;
+    startDate: string | null;
+    endDate: string | null;
     status: string| null;
 }
 
@@ -32,8 +33,9 @@ interface FilterProviderProps {
 
 export const FilterProvider: React.FC<FilterProviderProps> = ({ children }) => {
   const [filters, setFilters] = useState<Filters>({
-    date: null,
-    status: '', 
+    startDate: null,
+    endDate: null,
+    status: null, 
   });
 
   return (

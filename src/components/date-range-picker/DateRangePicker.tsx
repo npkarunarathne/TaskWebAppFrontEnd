@@ -2,19 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { TextField, Box } from '@mui/material';
 
 interface DateRangePickerProps {
-  onChange: (DateRange: string) => void;
+  onChange: (DateRange: { startDate: string | null; endDate: string | null; }) => void;
+  startDate:string | null;
+  endDate:string | null
 }
 
-const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange }) => {
-  const [startDate, setStartDate] = useState<string>('');
-  const [endDate, setEndDate] = useState<string>('');
-
+const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange,startDate,endDate }) => {
+  const [start, setStartDate] = useState<string | null>(null);
+  const [end, setEndDate] = useState<string | null>(null);
 
   useEffect(()=>{
-    if(startDate){
-        onChange(`${startDate}-${endDate}`);
+    if(start){
+        onChange({startDate:start,endDate:end});
     }
-  },[startDate,endDate])
+  },[start,end])
+
+  useEffect(()=>{
+    if(!startDate){
+        setStartDate('');
+        setEndDate('');
+    }
+  },[startDate])
 
 
   return (
@@ -22,7 +30,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange }) => {
        <TextField
         label="Start Date"
         type="date"
-        value={startDate}
+        value={start}
         onChange={(event)=>{setStartDate( event.target.value); if(!endDate){setEndDate( event.target.value);}}}
         InputLabelProps={{
           shrink: true,
@@ -32,7 +40,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange }) => {
       <TextField
         label="End Date"
         type="date"
-        value={endDate}
+        value={end}
         onChange={(event)=>{setEndDate( event.target.value)}}
         InputLabelProps={{
           shrink: true,
