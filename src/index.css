@@ -1,0 +1,28 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.full-w-h{
+  width:100%;
+  height:100%
+}
+
+.document-pane{
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.document-pane-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+.document-pane-footer{
+  justify-self:flex-end;
+}
