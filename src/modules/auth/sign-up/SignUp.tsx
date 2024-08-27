@@ -2,7 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -15,38 +14,20 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import {setRefreshToken, setToken, setUser} from "../../../store/reducers/authSlice.ts";
-
-const Copyright = (props: any) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import {
+  setRefreshToken,
+  setToken,
+  setUser,
+} from "../../../store/reducers/authSlice.ts";
 
 const validationSchema = yup.object({
-    firstName: yup
-    .string()
-    .required("Email is required"),
-    lastName: yup
-    .string()
-    .required("Email is required"),
-    email: yup
+  firstName: yup.string().required("Email is required"),
+  lastName: yup.string().required("Email is required"),
+  email: yup
     .string()
     .email("Enter a valid email")
     .required("Email is required"),
-    password: yup
+  password: yup
     .string()
     .min(8, "Password should be of minimum 8 characters length")
     .required("Password is required"),
@@ -75,10 +56,10 @@ const SignUp = () => {
 
   const formik = useFormik({
     initialValues: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -112,7 +93,7 @@ const SignUp = () => {
           backgroundPosition: "center",
         }}
       />
-      <Grid  item xs={12} sm={8} md={3} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={8} md={3} component={Paper} elevation={6} square>
         <Box
           sx={{
             my: 8,
@@ -128,12 +109,7 @@ const SignUp = () => {
           <Typography component="h1" variant="h5">
             SIGN UP
           </Typography>
-          <Box
-            // component="form"
-            // noValidate
-            // onSubmit={handleSubmit}
-            sx={{ mt: 1 }}
-          >
+          <Box sx={{ mt: 1 }}>
             <form onSubmit={formik.handleSubmit}>
               <TextField
                 margin="normal"
@@ -147,10 +123,12 @@ const SignUp = () => {
                 value={formik.values.firstName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                error={
+                  formik.touched.firstName && Boolean(formik.errors.firstName)
+                }
                 helperText={formik.touched.firstName && formik.errors.firstName}
               />
-                <TextField
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -162,10 +140,12 @@ const SignUp = () => {
                 value={formik.values.lastName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                error={
+                  formik.touched.lastName && Boolean(formik.errors.lastName)
+                }
                 helperText={formik.touched.lastName && formik.errors.lastName}
               />
-                <TextField
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -186,6 +166,7 @@ const SignUp = () => {
                 name="password"
                 label="Password"
                 id="password"
+                type="password"
                 autoComplete="current-password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -206,13 +187,12 @@ const SignUp = () => {
             </form>
             <Grid container>
               <Grid item>
-                  <Button onClick={() => navigate("/sign-in")} variant="text">
-                      {"already have an account?"}&nbsp;
-                      {"sign in"}
-                  </Button>
+                <Button onClick={() => navigate("/sign-in")} variant="text">
+                  {"already have an account?"}&nbsp;
+                  {"sign in"}
+                </Button>
               </Grid>
             </Grid>
-            <Copyright sx={{ mt: 5 }} />
           </Box>
         </Box>
       </Grid>

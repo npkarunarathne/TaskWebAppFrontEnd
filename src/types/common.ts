@@ -4,9 +4,9 @@ export interface LoginRequest {
 }
 
 export interface UserResponse {
-  name: string;
+  user: any;
   token: string;
-  refresh_token: string;
+  refreshToken: string;
 }
 
 export interface SignUpRequest {

@@ -5,12 +5,12 @@ export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAuthenticate: builder.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({
-        url: "User/UserLogin",
+        url: "User/login",
         method: "POST",
         body: credentials,
       }),
       transformResponse: (response) => {
-        return response?.data;
+        return response;
       },
     }),
   }),

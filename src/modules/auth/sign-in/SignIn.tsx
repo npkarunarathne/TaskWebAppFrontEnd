@@ -2,7 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -15,25 +14,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import {setRefreshToken, setToken, setUser} from "../../../store/reducers/authSlice.ts";
-
-const Copyright = (props: any) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import {
+  setRefreshToken,
+  setToken,
+  setUser,
+} from "../../../store/reducers/authSlice.ts";
 
 const validationSchema = yup.object({
   email: yup
@@ -56,8 +41,8 @@ const SignIn = () => {
   useEffect(() => {
     if (isSuccess && userData) {
       dispatch(setToken(userData?.token));
-      dispatch(setRefreshToken(userData?.refresh_token));
-      dispatch(setUser(userData?.name));
+      dispatch(setRefreshToken(userData?.refreshToken));
+      dispatch(setUser(userData?.user));
       navigate("/");
     }
   }, [isSuccess]);
@@ -69,8 +54,8 @@ const SignIn = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "user@example.com",
+      password: "Npk@1234",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -104,7 +89,7 @@ const SignIn = () => {
           backgroundPosition: "center",
         }}
       />
-      <Grid  item xs={12} sm={8} md={3} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={8} md={3} component={Paper} elevation={6} square>
         <Box
           sx={{
             my: 8,
@@ -120,12 +105,7 @@ const SignIn = () => {
           <Typography component="h1" variant="h5">
             SIGN IN
           </Typography>
-          <Box
-            // component="form"
-            // noValidate
-            // onSubmit={handleSubmit}
-            sx={{ mt: 1 }}
-          >
+          <Box sx={{ mt: 1 }}>
             <form onSubmit={formik.handleSubmit}>
               <TextField
                 margin="normal"
@@ -148,6 +128,7 @@ const SignIn = () => {
                 name="password"
                 label="Password"
                 id="password"
+                type="password"
                 autoComplete="current-password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -173,13 +154,12 @@ const SignIn = () => {
               {/*  </Link>*/}
               {/*</Grid>*/}
               <Grid item>
-                  <Button onClick={() => navigate("/sign-up")} variant="text">
-                      {"dont have an account"}&nbsp;
-                      {"sign up"}
-                  </Button>
+                <Button onClick={() => navigate("/sign-up")} variant="text">
+                  {"dont have an account"}&nbsp;
+                  {"sign up"}
+                </Button>
               </Grid>
             </Grid>
-            <Copyright sx={{ mt: 5 }} />
           </Box>
         </Box>
       </Grid>
