@@ -7,10 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, LinearProgress } from '@mui/material';
-import { useGetTaskFilterDataMutation } from '../../store/api/task/taskApiSlice';
-import { FilterProvider } from './context/FilterContext';
-import ToolBar from './components/ToolBar';
-import TaskTable from './components/TaskTable';
+import { useGetTaskFilterDataMutation } from '../../../store/api/task/taskApiSlice';
+import { useFilter } from '../context/FilterContext';
 
 const  createData = (
   name: string,
@@ -37,17 +35,14 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
- const  TaskList = () => {
+ const  TaskTable = () => {
 
+    const { filters } = useFilter();
   const [getTaskFilterData, { data: taskData, isLoading, isSuccess }] =
   useGetTaskFilterDataMutation();
 
   React.useEffect(()=>{
-    getTaskFilterData({
-      "startDate": null,
-      "endDate": null,
-      "status": null
-    })
+    getTaskFilterData({...filters})
   },[])
 
   React.useEffect(()=>{
@@ -57,15 +52,37 @@ const rows = [
   })
 
   return (
-    <Box p={5}>
-       <FilterProvider>
-        
-       <ToolBar />
-       <TaskTable/>
-       </FilterProvider>
-    
+    <Box pt={1}>
+       <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              {header.map((col:any)=>(
+                <TableCell key={col.key}>{col.name}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          
+          <TableBody>
+            {taskData && taskData.map((row:any) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                {header.map((col:any)=>(
+                <TableCell key={col.key}>{row[col.key]}</TableCell>
+              ))}
+              </TableRow>
+            ))}
+          </TableBody>
+          {isLoading && 
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>}
+        </Table>
+      </TableContainer>
     </Box>
   );
 }
 
-export default TaskList
+export default TaskTable
