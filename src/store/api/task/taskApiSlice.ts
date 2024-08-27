@@ -21,8 +21,15 @@ export const taskApiSlice = apiSlice.injectEndpoints({
         return response;
       },
     }),
+    saveTask: builder.mutation<any, any>({
+      query: (payload) => ({
+        url: "TaskItems",
+        method: "POST",
+        body: payload,
+      }),
+    }),
   }),
 });
 
-export const { useGetTaskListDataQuery, useGetTaskFilterDataMutation } =
+export const { useGetTaskListDataQuery, useGetTaskFilterDataMutation,useSaveTaskMutation } =
   taskApiSlice;
