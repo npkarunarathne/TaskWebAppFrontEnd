@@ -84,7 +84,6 @@ const TaskForm: React.FC = () => {
                         width: '50%',
                     }
                 }}>
-                    {JSON.stringify(formValues)}
                 <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '80%', margin: 'auto', mt: 5 }}>
                     <Typography variant="h5" align="center" gutterBottom>
                         Add Task
