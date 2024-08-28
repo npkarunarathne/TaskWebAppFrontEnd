@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+README
+Project Title
+TodoWebApplication
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Description
+TodoWebApplication is a web application designed to manage todo lists with different statuses. The application allows users to manage their tasks by creating, updating, and filtering them based on status and date range. Users can also upload images as attachments to their tasks. The application uses ReactJS and Material-UI to provide a modern and responsive user interface. Authentication is handled through Auth0 to ensure secure user login and task management.
 
-Currently, two official plugins are available:
+Features
+User Authentication: Secure login using Auth0.
+Task Management: Create, update, and delete todo items.
+Task Details:
+Task Name
+Task Description
+Attachment (Image file upload)
+Task Filtering: Filter tasks by:
+Status (Todo, In Progress, Done)
+Date Range (Created Date)
+Status Toggle: Easily change task status with a toggle button.
+Responsive UI: Designed with Material-UI for a responsive and user-friendly interface.
+Technologies Used
+Frontend: ReactJS
+UI Framework: Material-UI
+Authentication: Auth0
+Image Upload: API endpoint for image upload
+API Management: @reduxjs/toolkit for API interactions
+Installation
+Clone the Repository:
+bash
+Copy code
+git clone https://github.com/npkarunarathne/TaskWebAppFrontEnd
+Navigate to the Project Directory:
+bash
+Copy code
+cd TaskWebAppFrontEnd
+Install Dependencies:
+bash
+Copy code
+npm install
+Configuration
+Auth0 Configuration:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Set up Auth0 credentials and add them to your environment configuration file (e.g., .env).
+API Endpoints:
 
-## Expanding the ESLint configuration
+Ensure the API endpoint for image uploads is configured correctly in your application.
+Usage
+Start the Development Server:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+bash
+Copy code
+npm start
+Open the Application:
 
-- Configure the top-level `parserOptions` property like this:
+Navigate to http://localhost:5173 in your browser.
+Features:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Log in using your Auth0 credentials.
+Create, update, and manage tasks.
+Filter tasks by status and date range.
+Use the toggle button to change task statuses.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Acknowledgments
+Material-UI: For the UI framework.
+Auth0: For authentication services.
