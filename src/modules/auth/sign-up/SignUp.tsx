@@ -40,15 +40,6 @@ const SignUp = () => {
   const [signIn, { data: userData, isLoading, isSuccess }] =
     useGetAuthenticateMutation();
 
-  useEffect(() => {
-    if (isSuccess && userData) {
-      dispatch(setToken(userData?.token));
-      dispatch(setRefreshToken(userData?.refresh_token));
-      dispatch(setUser(userData?.name));
-      navigate("/");
-    }
-  }, [isSuccess]);
-
   const handleSubmit = (values: any) => {
     // alert(JSON.stringify(values, null, 2));
     signIn(values);
