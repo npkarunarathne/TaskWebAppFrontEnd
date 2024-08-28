@@ -1,4 +1,4 @@
-# TodoWebApplication
+# TaskWebApplication (ReactJs)
 
 ## Description
 
@@ -45,11 +45,7 @@ TodoWebApplication is a web-based task management system built with ReactJS and 
 
 ## Configuration
 
-1. **Auth0 Setup**:
-   - Set up your Auth0 account and create an application
-   - Add Auth0 credentials to your environment configuration file (e.g., `.env`)
-
-2. **API Endpoints**:
+ **API Endpoints**:
    - Ensure the API endpoint for image uploads is correctly configured in your application
 
 ## Usage
