@@ -3,9 +3,11 @@ Project Title
 TodoWebApplication
 
 Description
+
 TodoWebApplication is a web application designed to manage todo lists with different statuses. The application allows users to manage their tasks by creating, updating, and filtering them based on status and date range. Users can also upload images as attachments to their tasks. The application uses ReactJS and Material-UI to provide a modern and responsive user interface. Authentication is handled through Auth0 to ensure secure user login and task management.
 
 Features
+
 User Authentication: Secure login using Auth0.
 Task Management: Create, update, and delete todo items.
 Task Details:
@@ -23,7 +25,9 @@ UI Framework: Material-UI
 Authentication: Auth0
 Image Upload: API endpoint for image upload
 API Management: @reduxjs/toolkit for API interactions
+
 Installation
+
 Clone the Repository:
 bash
 Copy code
