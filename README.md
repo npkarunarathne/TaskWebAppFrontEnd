@@ -1,68 +1,77 @@
-README
-Project Title
-TodoWebApplication
+# TodoWebApplication
 
-Description
+## Description
 
-TodoWebApplication is a web application designed to manage todo lists with different statuses. The application allows users to manage their tasks by creating, updating, and filtering them based on status and date range. Users can also upload images as attachments to their tasks. The application uses ReactJS and Material-UI to provide a modern and responsive user interface. Authentication is handled through Auth0 to ensure secure user login and task management.
+TodoWebApplication is a web-based task management system built with ReactJS and Material-UI. It allows users to create, update, and filter todo items based on status and date range. The application features secure user authentication through Auth0 and supports image attachments for tasks.
 
-Features
+## Features
 
-User Authentication: Secure login using Auth0.
-Task Management: Create, update, and delete todo items.
-Task Details:
-Task Name
-Task Description
-Attachment (Image file upload)
-Task Filtering: Filter tasks by:
-Status (Todo, In Progress, Done)
-Date Range (Created Date)
-Status Toggle: Easily change task status with a toggle button.
-Responsive UI: Designed with Material-UI for a responsive and user-friendly interface.
-Technologies Used
-Frontend: ReactJS
-UI Framework: Material-UI
-Authentication: Auth0
-Image Upload: API endpoint for image upload
-API Management: @reduxjs/toolkit for API interactions
+- **User Authentication**: Secure login using Auth0
+- **Task Management**: Create, update, and delete todo items
+- **Task Details**:
+  - Task Name
+  - Task Description
+  - Attachment (Image file upload)
+- **Task Filtering**:
+  - By Status (Todo, In Progress, Done)
+  - By Date Range (Created Date)
+- **Status Toggle**: Easily change task status with a toggle button
+- **Responsive UI**: Designed with Material-UI for a modern and user-friendly interface
 
-Installation
+## Technologies Used
 
-Clone the Repository:
-bash
-Copy code
-git clone https://github.com/npkarunarathne/TaskWebAppFrontEnd
-Navigate to the Project Directory:
-bash
-Copy code
-cd TaskWebAppFrontEnd
-Install Dependencies:
-bash
-Copy code
-npm install
-Configuration
-Auth0 Configuration:
+- Frontend: ReactJS
+- UI Framework: Material-UI
+- Authentication: Auth0
+- API Management: @reduxjs/toolkit
+- Image Upload: Custom API endpoint
 
-Set up Auth0 credentials and add them to your environment configuration file (e.g., .env).
-API Endpoints:
+## Installation
 
-Ensure the API endpoint for image uploads is configured correctly in your application.
-Usage
-Start the Development Server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/npkarunarathne/TaskWebAppFrontEnd
+   ```
 
-bash
-Copy code
-npm start
-Open the Application:
+2. Navigate to the project directory:
+   ```bash
+   cd TaskWebAppFrontEnd
+   ```
 
-Navigate to http://localhost:5173 in your browser.
-Features:
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Log in using your Auth0 credentials.
-Create, update, and manage tasks.
-Filter tasks by status and date range.
-Use the toggle button to change task statuses.
+## Configuration
 
-Acknowledgments
-Material-UI: For the UI framework.
-Auth0: For authentication services.
+1. **Auth0 Setup**:
+   - Set up your Auth0 account and create an application
+   - Add Auth0 credentials to your environment configuration file (e.g., `.env`)
+
+2. **API Endpoints**:
+   - Ensure the API endpoint for image uploads is correctly configured in your application
+
+## Usage
+
+1. Start the development server:
+   ```bash
+   npm start
+   ```
+
+2. Open the application:
+   - Navigate to `http://localhost:5173` in your web browser
+
+3. Using the application:
+   - Log in using your Auth0 credentials
+   - Create, update, and manage tasks
+   - Filter tasks by status and date range
+   - Use the toggle button to change task statuses
+
+## License
+
+
+## Acknowledgments
+
+- [Material-UI](https://material-ui.com/) for the UI framework
+- [Auth0](https://auth0.com/) for authentication services
