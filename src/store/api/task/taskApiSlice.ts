@@ -35,9 +35,20 @@ export const taskApiSlice = apiSlice.injectEndpoints({
         body: payload,
       }),
     }),
-    
+    uploadImage: builder.mutation({
+      query: (formData) => ({
+        url: "Image/UploadImage",
+        method: "POST",
+        body: formData,
+      }),
+    }),
   }),
 });
 
-export const { useGetTaskListDataQuery, useGetTaskFilterDataMutation,useSaveTaskMutation,useUpdateTaskMutation } =
-  taskApiSlice;
+export const {
+  useGetTaskListDataQuery,
+  useGetTaskFilterDataMutation,
+  useSaveTaskMutation,
+  useUpdateTaskMutation,
+  useUploadImageMutation, 
+} = taskApiSlice;
